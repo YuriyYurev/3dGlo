@@ -1,4 +1,4 @@
-class SliderCourusel{
+export default class SliderCourusel{
     constructor({
       main,
       wrap,

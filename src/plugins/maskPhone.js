@@ -1,4 +1,4 @@
-function maskPhone(selector, masked = '+7 (___) ___-__-__') {
+const maskPhone = (selector, masked = '+7 (___) ___-__-__') => {
 	const elem = document.querySelector(selector);
 
 	function mask(event) {
@@ -33,3 +33,4 @@ function maskPhone(selector, masked = '+7 (___) ___-__-__') {
 	elem.addEventListener("focus", mask);
 	elem.addEventListener("blur", mask);
 }
+export default maskPhone;

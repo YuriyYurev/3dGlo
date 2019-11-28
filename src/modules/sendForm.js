@@ -1,3 +1,5 @@
+import maskPhone from '../plugins/maskPhone';
+
 const sendForm = () => {
 
   let inp = document.querySelectorAll('input');
@@ -12,9 +14,9 @@ const sendForm = () => {
       });
     }
   });
-  const readySend = '../images/send.png',
-        preloader = '../images/preloader.gif',
-        errorSend = '../images/error-send.png';
+  const readySend = './images/send.png',
+        preloader = './images/preloader.gif',
+        errorSend = './images/error-send.png';
   const formOne = document.getElementById('form1'),
     formTwo = document.getElementById('form2'),
     formThree = document.getElementById('form3');

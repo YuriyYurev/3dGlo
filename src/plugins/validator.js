@@ -1,4 +1,4 @@
-class Validator {
+export default class Validator {
   constructor({selector, pattern = {}, method}) {
     this.form = document.querySelector(selector);
     this.pattern = pattern;
@@ -69,6 +69,11 @@ class Validator {
     errorDiv.textContent = 'ошибка в этом поле';
     errorDiv.classList.add('validator-error');
     elem.insertAdjacentElement('afterend', errorDiv);
+    if (elem.value === '') {
+      elem.classList.remove('error');
+      elem.classList.remove('success');
+      elem.nextElementSibling.remove();
+    }
 
   }
 
@@ -76,6 +81,11 @@ class Validator {
     elem.classList.remove('error');
     elem.classList.add('success');
     if (elem.nextElementSibling && elem.nextElementSibling.classList.contains('validator-error')) {
+      elem.nextElementSibling.remove();
+    }
+    if (elem.value === '') {
+      elem.classList.remove('error');
+      elem.classList.remove('success');
       elem.nextElementSibling.remove();
     }
   }
@@ -110,6 +120,4 @@ class Validator {
       this.pattern.ruText = /^\W+$/;
     }
   }
- 
 }
-
