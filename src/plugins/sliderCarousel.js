@@ -75,7 +75,6 @@ export default class SliderCourusel{
           margin: 0 auto  !important; 
         }
       `;
-  
       document.head.appendChild(style);
     }
     controlSlider() {
@@ -173,9 +172,8 @@ export default class SliderCourusel{
             this.addStyle();
           }
         };
-  
         checkResponse();
-  
         window.addEventListener('resize', checkResponse);
     }
   }
+

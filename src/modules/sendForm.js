@@ -34,7 +34,6 @@ const sendForm = () => {
     form.reset();
       formData.forEach((val, key) => {
         body[key] = val;
-        console.log(val);
       });
     postData(body)
       .then((response) => {
