@@ -23,10 +23,33 @@ const sendForm = () => {
   const statusImg = document.createElement('img');
   statusImg.style.maxWidth = '40px';
 
+  const tel =/^\+?[78]([-()]*\d){10}$/,
+        email = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   
   const resData = (form) => {
     form.addEventListener('submit', (event) => {
-    event.preventDefault();
+      event.preventDefault();
+
+      let check = true;
+      const inputs = form.querySelectorAll('input');
+      inputs.forEach(item => {
+        if(item.name === 'user_phone') {
+          if(!tel.test(item.value)) {
+            statusImg.src = errorSend;
+            check = false;
+          }
+        }
+        if(item.name === 'user_email') {
+          if(!email.test(item.value)) {
+            statusImg.src = errorSend;
+            check = false;
+          }
+        }
+      });
+    if (check === false) {
+      return;
+    }
+
     statusImg.src = preloader;
     form.appendChild(statusImg);
     const formData = new FormData(form);
